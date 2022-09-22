@@ -54,9 +54,26 @@
     </article>
 
     <div>
-      <textarea class="textarea is-large block" placeholder="e.g. Hello world"></textarea>
-      <button class="button is-primary block">Copiar</button>
+      <textarea id="texto" class="textarea is-large block" placeholder="e.g. Hello world"></textarea>
+      <button onclick="copiarTexto()" class="button is-primary block">Copiar</button>
+      <button onclick="limparTexto()" class="button is-primary block">Limpar</button>
     </div>
   </div>
+
+<script>
+  function copiarTexto() {
+      let textoCopiado = document.getElementById("texto");
+      textoCopiado.select();
+      textoCopiado.setSelectionRange(0, 99999)
+      document.execCommand("copy");
+      alert("O texto copiado!");
+  }
+
+  function limparTexto(){
+    document.getElementById('texto').value = '';
+  }
+</script>
   </body>
 </html>
+
+
